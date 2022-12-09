@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/no-typos */
 /* eslint-disable react/jsx-filename-extension */

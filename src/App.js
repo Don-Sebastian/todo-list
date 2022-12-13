@@ -14,12 +14,18 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   // States
   const [todos, setTodos] = useState([]);
-  const [status, setStatus] = useState('all');
+  const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+
+  // run once when app start
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
 
   // UseEffect
   useEffect(() => {
     filterHandler();
+    saveToLocal();
   }, [todos, status]);
 
   // Functions
@@ -37,14 +43,23 @@ function App() {
     }
   };
 
-// Save to local
-  // const saveLocalTodos = () => {
-  //   if (localStorage.getItem('todos') === null) {
-  //     localStorage.setItem('todos', JSON.stringify([]));
-  //   } else {
-  //     localStorage.setItem('todos', JSON.stringify(todos))
-  //   }
-  // };
+  //save to local
+  const saveToLocal = () => {
+    if (todos.length > 0) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  };
+
+  // //get from local
+  const getLocalTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem("todos"));
+      console.log(todoLocal);
+      setTodos(todoLocal);
+    }
+  };
 
   return (
     <div className="App">

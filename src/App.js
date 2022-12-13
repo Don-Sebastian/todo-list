@@ -13,7 +13,8 @@ import TodoList from './components/TodoList';
 function App() {
   // eslint-disable-next-line no-unused-vars
   // States
-  const [todos, setTodos] = useState([]);
+  const todoLocal = JSON.parse(localStorage.getItem("todos")) || [];
+  const [todos, setTodos] = useState(todoLocal);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -45,10 +46,8 @@ function App() {
 
   //save to local
   const saveToLocal = () => {
-    if (todos.length > 0) {
       localStorage.setItem("todos", JSON.stringify(todos));
-    }
-  };
+    };
 
   // //get from local
   const getLocalTodos = () => {

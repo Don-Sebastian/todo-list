@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "eslint-plugin-jsx-a11yu": "^6.6.1",
-    "eslint-plgin-react": "^7.31.11",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0"
   }
 }
